@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - My Class</title>
+    <link rel="icon" type="image/png" href="logo2-removebg-preview.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden; /* prevent scrolling */
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #eae7ee;
+        }
+
+        /* HEADER */
+        header {
+            background-color: transparent;
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        header img {
+            width: 50px;
+        }
+
+        .btn {
+            padding: 8px 18px;
+            background-color: transparent;
+            border: 1px solid #c63756;
+            border-radius: 3px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c63756;
+            border-color: #c63756;
+            color: white;
+        }
+
+        /* SIGNUP PAGE */
+        .signup-container {
+            background: linear-gradient(135deg, #7a7281 0%, #f9fcfd 100%);
+            height: 100vh; /* full screen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .signup-box {
+            background-color: #fff;
+            color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .signup-box h2 {
+            color: #c63756;
+            margin-bottom: 10px;
+            font-size: 26px;
+        }
+
+        .signup-box p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .signup-form .form-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .signup-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .signup-form input, 
+        .signup-form select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .signup-form input:focus,
+        .signup-form select:focus {
+            outline: none;
+            border-color: #c63756;
+        }
+
+        .signup-btn {
+            width: 100%;
+            background-color: #c63756;
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+            margin-top: 5px;
+        }
+
+        .signup-btn:hover {
+            background-color: #a72f47;
+        }
+
+        .redirect {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .redirect a {
+            color: #c63756;
+            text-decoration: none;
+        }
+
+        .redirect a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            background-color: #c63756;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        @media (max-width: 500px) {
+            .signup-box {
+                width: 90%;
+                padding: 25px 20px;
+            }
+            .signup-box h2 {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .signup-box {
+                transform: scale(0.9);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo1-removebg-preview.png" alt="My Class Logo">
+        <nav>
+            <a href="index.html" class="btn">Home</a>
+            <a href="login.html" class="btn">Login</a>
+        </nav>
+    </header>
+
+    <section class="signup-container">
+        <div class="signup-box">
+            <h2>Student Registration</h2>
+            <p>Fill out the form to register your account.</p>
+
+            <form action="signup.php" method="POST" class="signup-form">
+                <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" id="fname" name="fname" placeholder="Enter your first name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mname">Middle Name</label>
+                    <input type="text" id="mname" name="mname" placeholder="Enter your middle name">
+                </div>
+
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" id="lname" name="lname" placeholder="Enter your last name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="class">Class</label>
+                    <select id="class" name="class" required>
+                        <option value="">-- Select Class --</option>
+                        <option value="Primary 1">Primary 1</option>
+                        <option value="Primary 2">Primary 2</option>
+                        <option value="Primary 3">Primary 3</option>
+                        <option value="Primary 4">Primary 4</option>
+                        <option value="Primary 5">Primary 5</option>
+                        <option value="Primary 6">Primary 6</option>
+                        <option value="Senior 1">Senior 1</option>
+                        <option value="Senior 2">Senior 2</option>
+                        <option value="Senior 3">Senior 3</option>
+                        <option value="Senior 4">Senior 4</option>
+                        <option value="Senior 5">Senior 5</option>
+                        <option value="Senior 6">Senior 6</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <button type="submit" class="signup-btn">Submit</button>
+
+                <p class="redirect">Already registered? <a href="login.html">Login here</a></p>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; My Class Web. All rights reserved.</p>
+    </footer>
+</body>
+</html>
